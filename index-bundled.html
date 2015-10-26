@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>External Resource Bundles</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="jspm_packages/system.js"></script>
+</head>
+<body>
+<div>
+    <button id="en">en-us</button>
+    <button id="fr">fr-fr</button>
+    <h1 id="message"></h1>
+</div>
+<script src="build.js"></script>
+<script>
+    // as the original config isn't included in the bundle,
+    // we need to explicitly tell SystemJS where 'i18n' maps to
+    System.paths = {
+        "i18n*": "https://jhchill666.cachefly.net/external-cdn/i18n*"
+    };
+    System.import('lib/main.js');
+</script>
+</body>
+</html>
